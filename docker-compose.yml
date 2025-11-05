@@ -1,0 +1,14 @@
+services:
+  support_bot:
+    build: .
+    container_name: bot_support
+    restart: unless-stopped
+    volumes:
+      - ./bot_data:/app/bot_data
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
